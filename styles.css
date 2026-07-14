@@ -209,3 +209,54 @@ footer p {
     background-color: #010101;
     color: white;
 }
+
+/* =========================================
+   DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Ajustar la barra de navegación */
+    header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+    }
+
+    /* 2. Achicar los textos principales (Hero) */
+    .hero {
+        height: 60vh;
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 32px; /* Letra más pequeña para que no se desborde */
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    /* 3. Ajustar el espacio de los productos */
+    .productos {
+        padding: 40px 5%;
+    }
+
+    .productos h2 {
+        font-size: 26px;
+    }
+
+    /* 4. Apilar el pie de página */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
