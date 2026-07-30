@@ -270,16 +270,53 @@ footer p {
    DISEÑO RESPONSIVO (MÓVILES Y TABLETS)
    ========================================= */
 @media (max-width: 768px) {
-    /* 1. Ajustar la barra de navegación */
-   .hero-moderno {
-        flex-direction: column-reverse; /* Pone la imagen arriba y el texto abajo */
+    /* 1. Truco de oro: Evita que la pantalla se pueda mover hacia los lados */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* 2. Ajuste del encabezado y logo */
+    header {
+        flex-direction: column; /* Apila el logo arriba y el menú abajo */
+        padding: 15px 10px;
+        gap: 15px; /* Espacio entre el logo y los botones */
+    }
+
+    .logo {
+        font-size: 22px; /* Logo más pequeño para que quepa bien */
         text-align: center;
-        padding: 40px 5%;
-        margin-top: 20px;
+    }
+    
+    /* 3. Acomodo del menú para que no se salga */
+    nav ul {
+        flex-wrap: wrap; /* Si no caben los botones, los pasa a la línea de abajo */
+        justify-content: center;
+        gap: 10px; /* Espacio entre los botones del menú */
+    }
+
+    nav ul li {
+        margin-left: 0; 
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Letra del menú un poco más pequeña */
+    }
+
+    .btn-contacto {
+        padding: 6px 15px; /* Botón verde más compacto */
+        font-size: 14px;
+    }
+
+    /* 4. Ajustes del Hero (La pantalla dividida) */
+    .hero-moderno {
+        flex-direction: column-reverse; /* Foto arriba, texto abajo */
+        text-align: center;
+        padding: 30px 5%;
+        min-height: auto;
     }
 
     .hero-texto h1 {
-        font-size: 40px;
+        font-size: 35px; /* Título principal más pequeño */
     }
 
     .hero-botones {
@@ -287,31 +324,21 @@ footer p {
         flex-wrap: wrap;
     }
 
+    /* 5. Achicar la foto principal para que no estorbe */
+    .img-flotante {
+        width: 100%;
+        max-width: 260px; /* Tope máximo para que se vea delicada y no gigante */
+    }
+
     .circulo-decorativo {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
     }
-}
-/* Quitar subrayado del enlace de las tarjetas */
-.enlace-categoria {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-/* =========================================
-   ANIMACIONES
-   ========================================= */
-
-/* 1. Creamos la instrucción de la animación (Fade In y Flotar) */
-@keyframes aparecerFlotando {
-    from {
-        opacity: 0;
-        transform: translateY(30px); /* Empieza 30 pixeles abajo */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0); /* Termina en su posición original */
+    
+    /* 6. Apilar el pie de página */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
     }
 }
 
@@ -326,7 +353,6 @@ footer p {
     
     /* ¡Aquí agregamos la animación! */
     animation: aparecerFlotando 0.8s ease-out forwards;
-    opacity: 0; /* Empiezan invisibles para que la animación las muestre */
 }
 
 /* Hacemos que la segunda tarjeta tarde un poquito más en aparecer */
